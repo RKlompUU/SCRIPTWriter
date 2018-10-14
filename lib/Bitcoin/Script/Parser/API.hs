@@ -1,6 +1,6 @@
 module Bitcoin.Script.Parser.API (
   Bitcoin.Script.Parser.SyntaxExtension.languageDescription,
-  module Bitcoin.Script.Parser.AST,
+  Bitcoin.Script.Parser.AST.ScriptAST(..),
   eScriptToBytecode,
   eScriptToScriptOps,
   eScriptToAST
@@ -21,7 +21,7 @@ eScriptToBytecode cScrpt =
   unsugar cScrpt
 
 -- |'eScriptToScriptOps' translates a script, written in the extended language, to
--- a list of SCRIPT instructions. Returns 'Right' 'String' upon successful translation,
+-- a list of SCRIPT instructions. Returns 'Right' ['ScriptOp'] upon successful translation,
 -- and 'Left' 'String' otherwise.
 eScriptToScriptOps :: String -> Either String [ScriptOp]
 eScriptToScriptOps cScrpt =
@@ -32,7 +32,7 @@ eScriptToScriptOps cScrpt =
 
 -- |'eScriptToAST' translates a script, written in the extended language, to
 -- an Abstract Syntax Tree (with nested true and false branches of If Then Else).
--- Returns 'Right' 'String' upon successful translation, and 'Left' 'String' otherwise.
+-- Returns 'Right' 'ScriptAST' upon successful translation, and 'Left' 'String' otherwise.
 eScriptToAST :: String -> Either String ScriptAST
 eScriptToAST cScrpt =
   runFillLabels

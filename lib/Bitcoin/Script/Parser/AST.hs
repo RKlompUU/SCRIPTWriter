@@ -9,9 +9,9 @@ import Bitcoin.Script.Parser.Standard
 type Label = Int
 
 data ScriptAST where
-  --            ID(IF)  True branch  ID(ELSE) False branch ID(ENDIF)  Continuation
+  -- |'ScriptITE':  Location OP_IF -> True branch -> Location OP_ELSE -> False branch -> Location OP_ENDIF -> Continuation
   ScriptITE  :: Label -> ScriptAST -> Label -> ScriptAST -> Label -> ScriptAST -> ScriptAST
-  --            ID(op)     op        Continuation
+  -- |'ScriptOp':   Location op -> op -> Continuation
   ScriptOp   :: Label -> ScriptOp  -> ScriptAST -> ScriptAST
   ScriptTail :: ScriptAST
 
