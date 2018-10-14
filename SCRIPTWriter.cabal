@@ -1,0 +1,75 @@
+-- This file has been generated from package.yaml by hpack version 0.27.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 1c6bbe5bc9b52aa84b36d7f60d203b0659e0417aa622f18a395aa7f0818cd7b2
+
+name:           SCRIPTWriter
+version:        0.1.0.0
+description:    Please see the README on Github at https://github.com/RKlompUU/SCRIPTWriter
+homepage:       https://github.com/RKlompUU/SCRIPTWriter
+bug-reports:    https://github.com/RKlompUU/SCRIPTWriter/issues
+author:         Rick Klomp
+maintainer:     r.klomp@cs.stir.ac.uk
+copyright:      2018 Rick Klomp
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/RKlompUU/SCRIPTWriter
+
+library
+  exposed-modules:
+      Bitcoin.Script.Analysis.Parser.API
+  other-modules:
+      Paths_SCRIPTWriter
+      Bitcoin.Script.Parser.AST
+      Bitcoin.Script.Parser.SyntaxExtension
+      Bitcoin.Script.Parser.Parser
+  hs-source-dirs:
+      lib
+  build-depends:
+      base >=4.7,
+      binary,
+      mtl,
+      containers,
+      free,
+      uu-tc,
+      either >= 4.4.1,
+      IntervalMap,
+      bytestring >= 0.10.8.1,
+      base16-bytestring >= 0.1.1.6,
+      binary-parser >= 0.5.5,
+      bytestring-conversion,
+      text >= 1.2.2.1,
+      hex >= 0.1.2,
+      hexstring >= 0.11.1,
+      bitcoin-script,
+      bitcoin-hs,
+      array >= 0.5.2.0,
+      transformers
+  default-language: Haskell2010
+
+executable SCRIPTWriter-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_SCRIPTWriter
+  hs-source-dirs:
+      exe
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      SCRIPTWriter
+    , base >=4.7 && <5
+    , containers
+    , bytestring >= 0.10.8.1
+    , base16-bytestring
+    , hex >= 0.1.2
+    , bitcoin-script
+  default-language: Haskell2010

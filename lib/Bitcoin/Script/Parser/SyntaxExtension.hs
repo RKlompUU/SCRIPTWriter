@@ -1,11 +1,9 @@
-module Bitcoin.Script.Parser.SyntaxSugar (unsugar, hexInt, languageDescription) where
+module Bitcoin.Script.Parser.SyntaxExtension (unsugar, languageDescription) where
 
 import Prelude hiding ((<$>), (<*), (*>), (<*>))
 
 import ParseLib.Simple
-import qualified Data.ByteString.Base16.Lazy as BS16L
 import qualified Data.ByteString.Lazy        as BSL
-import qualified Data.ByteString.Lazy.Char8  as BS8LC
 import Data.Bitcoin.Script hiding (decode)
 import Data.Binary (decode)
 
@@ -14,7 +12,7 @@ import Numeric (showHex)
 import Bitcoin.Script.Integer (asByteString)
 import Data.List
 
-import Bitcoin.Script.Analysis.Standard
+import Bitcoin.Script.Parser.Standard
 
 type SParser a = Parser Char a
 
