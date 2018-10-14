@@ -1,9 +1,9 @@
 module Bitcoin.Script.Parser.API (
   Bitcoin.Script.Parser.SyntaxExtension.languageDescription,
   module Bitcoin.Script.Parser.AST,
-  cScriptToBytecode,
-  cScriptToScriptOps,
-  cScriptToAST
+  eScriptToBytecode,
+  eScriptToScriptOps,
+  eScriptToAST
 ) where
 
 import Bitcoin.Script.Parser.SyntaxExtension
@@ -13,28 +13,28 @@ import Bitcoin.Script.Parser.Parser
 import qualified Data.ByteString.Lazy.Char8 as B
 import Data.Bitcoin.Script
 
--- |'customScript2Bytecode' translates a script, written in the custom language, to
+-- |'eScriptToBytecode' translates a script, written in the extended language, to
 -- Bitcoin script bytecode (in 'String' format). Returns 'Right' 'String' upon successful translation,
 -- and 'Left' 'String' otherwise.
-cScriptToBytecode :: String -> Either String String
-cScriptToBytecode cScrpt =
+eScriptToBytecode :: String -> Either String String
+eScriptToBytecode cScrpt =
   unsugar cScrpt
 
--- |'cScriptToScriptOps' translates a script, written in the custom language, to
+-- |'eScriptToScriptOps' translates a script, written in the extended language, to
 -- a list of SCRIPT instructions. Returns 'Right' 'String' upon successful translation,
 -- and 'Left' 'String' otherwise.
-cScriptToScriptOps :: String -> Either String [ScriptOp]
-cScriptToScriptOps cScrpt =
+eScriptToScriptOps :: String -> Either String [ScriptOp]
+eScriptToScriptOps cScrpt =
   scriptOps
   <$> decode
   <$> B.pack
-  <$> cScriptToBytecode cScrpt
+  <$> eScriptToBytecode cScrpt
 
--- |'cScriptToAST' translates a script, written in the custom language, to
+-- |'eScriptToAST' translates a script, written in the extended language, to
 -- an Abstract Syntax Tree (with nested true and false branches of If Then Else).
 -- Returns 'Right' 'String' upon successful translation, and 'Left' 'String' otherwise.
-cScriptToAST :: String -> Either String ScriptAST
-cScriptToAST cScrpt =
+eScriptToAST :: String -> Either String ScriptAST
+eScriptToAST cScrpt =
   runFillLabels
   <$> buildAST
-  <$> cScriptToScriptOps cScrpt
+  <$> eScriptToScriptOps cScrpt

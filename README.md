@@ -2,7 +2,7 @@
 ## Symbolic verification of Bitcoin's output scripts
 ![Alt text](.imgs/outputExampleA.png?raw=true "Example")
 
-SCRIPT Writer is
+SCRIPT Writer defines a human friendly Bitcoin SCRIPT language and provides a set of functions to translate programs written in this extended language (called ESCRIPT, which is an acronym for Extended SCRIPT) to Bitcoin SCRIPT bytecode. See below for the syntax description, or visit https://vm100.cs.stir.ac.uk/~rkl/docu.php.
 
 #### Installation
 Dependency: Haskell's Stack (https://docs.haskellstack.org/en/stable/install_and_upgrade/)
@@ -19,11 +19,11 @@ In the root directory of this repository run:
 
 The executable (SCRIPTWriter-exe) can be executed in any directory of this repository through Stack as follows: stack exec SCRIPTWriter-exe -- _arguments_
 
-Call SCRIPTWriter-exe, with the output script in stdin, and optionally passing some arguments (call the tool with first argument 'help' for information regarding arguments)
+Call SCRIPTWriter-exe, with the custom script in stdin, and optionally passing some arguments (call the tool with first argument 'help' for information regarding arguments)
 
-For example, if file scriptA contains an output script (see below for syntax description, or go to https://vm100.cs.stir.ac.uk/~rkl/docu.php), run the following in Bash: stack exec SCRIPTWriter-exe < scriptA
+For example, if file scriptA contains a script written in the human friendly language, run the following in Bash: stack exec SCRIPTWriter-exe -- < scriptA
 
-Some example output scripts can be found in folder scripts/
+Some example scripts can be found in folder scripts/
 
 
 #### Understanding SCRIPTWriter-exe's output

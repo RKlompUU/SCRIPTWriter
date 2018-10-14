@@ -29,7 +29,7 @@ main = do
   args <- getArgs
   if null args
     then do
-      res <- cScriptToBytecode <$> readStdin
+      res <- eScriptToBytecode <$> readStdin
       case res of
         Left err -> putStrLn err
         Right scrpt -> putStrLn scrpt
