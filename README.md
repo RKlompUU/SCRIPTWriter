@@ -6,6 +6,8 @@ SCRIPT Writer defines a human friendly Bitcoin SCRIPT language and provides a se
 
 The extended language is a superset of the bytecode SCRIPT language. This means that it is possible to define a script partially using extended syntax constructions, and partially in direct streams of bytecode. Bytecodes are passed through the parser as-is.
 
+The language can be tried out at https://vm100.cs.stir.ac.uk/~rkl/home.html (at the bottom of the page, beneath "Serialization of a script:").
+
 #### Installation
 Dependency: Haskell's Stack (https://docs.haskellstack.org/en/stable/install_and_upgrade/)
 
