@@ -4,6 +4,8 @@
 
 SCRIPT Writer defines a human friendly Bitcoin SCRIPT language and provides a set of functions to translate programs written in this extended language (called ESCRIPT, which is an acronym for Extended SCRIPT) to Bitcoin SCRIPT bytecode. See below for the syntax description, or visit https://vm100.cs.stir.ac.uk/~rkl/docu.php.
 
+The extended language is a superset of the bytecode SCRIPT language. This means that it is possible to define a script partially using extended syntax constructions, and partially in direct streams of bytecode. Bytecodes are passed through the parser as-is.
+
 #### Installation
 Dependency: Haskell's Stack (https://docs.haskellstack.org/en/stable/install_and_upgrade/)
 
@@ -35,7 +37,7 @@ Instructions on how to interpret the description:\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;side or the right hand side)\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- The ".." specifies a range of allowed characters.\
 Any amount of whitespace is allowed between each instruction and between\
-the PUSH keyword and the subsequent bytestring. Parsing starts by applying\
+the PUSH keyword and the subsequent bytestring. Parsing starts by applying the\
 Start rule. Anything after "\#" on a line is treated as a comment (similar to how comments work in Bash).\
 
 
@@ -47,7 +49,7 @@ Integer := "i" Num+ | "i-" Num+\
 Num := "0".."9"\
 Bytestring := Byte+\
 Byte := Hexadecimal Hexadecimal\
-Hexadecimal := "0".."9" | "a".."z" | "A".."Z"\
+Hexadecimal := "0".."9" | "a".."f" | "A".."F"\
 Mnemonic := "OP_0" | "OP_FALSE" | "OP_PUSHDATA1" | "OP_PUSHDATA2"\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| "OP_PUSHDATA4" | "OP_1NEGATE" | "OP_RESERVED" | "OP_1"\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| "OP_2" | "OP_3" | "OP_4" | "OP_5"\
