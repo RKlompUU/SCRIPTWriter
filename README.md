@@ -1,6 +1,6 @@
 # SCRIPT Writer
 ![Alt text](.imgs/extendedScriptExample.png?raw=true "Example")
-## ESCRIPT: a human friendly language for programming Bitcoin scripts
+## ESCRIPT: a human readable language for programming Bitcoin scripts
 
 SCRIPT Writer defines a human friendly Bitcoin SCRIPT language and provides a set of functions to translate programs written in this extended language (called ESCRIPT, which is an acronym for Extended SCRIPT) to Bitcoin SCRIPT bytecode. See below for the syntax description, or visit https://vm100.cs.stir.ac.uk/~rkl/docu.php.
 
