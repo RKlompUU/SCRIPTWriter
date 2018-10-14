@@ -33,8 +33,8 @@ languageDescription =
      \the PUSH keyword and the subsequent bytestring. Parsing starts by applying\n\
      \Start rule. Anything after \"#\" on a line is treated as a comment (similar\n\
      \to how comments work in Bash).\n\n\n\
-     \Start := Instruction*\n\n\
-     \Instruction := Push | Mnemonic | Byte\n\
+     \Start := (Instruction | Byte)*\n\n\
+     \Instruction := Push | Mnemonic\n\
      \Push := \"PUSH\" Bytestring | \"PUSH\" Integer\n\
      \Integer := \"i\" Num+ | \"i-\" Num+\n\
      \Num := \"0\"..\"9\"\n\
