@@ -1,0 +1,6 @@
+01 01   # PUSH 1
+93      # ADD
+
+01 02   # PUSH 2
+
+94      # SUBTRACT
