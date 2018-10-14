@@ -23,7 +23,7 @@ In the root directory of this repository run:
 
 The executable (SCRIPTWriter-exe) can be executed in any directory of this repository through Stack as follows: stack exec SCRIPTWriter-exe -- _arguments_
 
-Call SCRIPTWriter-exe, with the custom script in stdin, and optionally passing some arguments (call the tool with first argument 'help' for information regarding arguments)
+Call SCRIPTWriter-exe, with the custom script in stdin.
 
 For example, if file scriptA contains a script written in the human friendly language, run the following in Bash: stack exec SCRIPTWriter-exe -- < scriptA
 
