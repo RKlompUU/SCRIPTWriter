@@ -1,5 +1,5 @@
 module Bitcoin.Script.Parser.API (
-
+  Bitcoin.Script.Parser.SyntaxExtension.languageDescription
 ) where
 
 import Bitcoin.Script.Parser.SyntaxExtension

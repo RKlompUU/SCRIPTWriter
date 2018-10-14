@@ -4,12 +4,10 @@ import System.IO
 import System.Exit
 import System.Environment
 
-import Bitcoin.Script.Analysis.Standard
 import Data.List
 import Data.Maybe
 
-import Bitcoin.Script.Analysis.API
-import Bitcoin.Script.Analysis.Cryptography
+import Bitcoin.Script.Parser.API
 
 printHelp :: IO ()
 printHelp = do
@@ -20,7 +18,7 @@ printHelp = do
              "\t\t2: _More_ verbose prints, additionally prints inferred types of expressions, as well as a trace of stack mutations\n" ++
              "\t\t>=3: Verbose prints (debugging mode), additionally prints prolog related information\n" ++
              "\tArg 2 (optional): path for creating temporary prolog code file (default is /tmp/)\n" ++
-             "\tArg 3 (optional): string to prepend the verdict line (useful to track metadata through large batch computations)\n\n" ++ genLanguageDocs
+             "\tArg 3 (optional): string to prepend the verdict line (useful to track metadata through large batch computations)\n\n" ++ languageDescription
   exitFailure
 
 readStdin :: IO String
@@ -46,10 +44,12 @@ main = do
   let dir = fromMaybe "/tmp/" (args !? 1)
   let preVerdict = fromMaybe "" (args !? 2)
 
-  scrpt <- serializeScript <$> readStdin
-  result <- case scrpt of
-              Left err -> return $ Left err
-              Right justScrpt -> analyseOpenScript justScrpt dir preVerdict m
-  case result of
-    Left err -> putStrLn err
-    Right str -> putStrLn str
+--  scrpt <- serializeScript <$> readStdin
+  return ()
+
+(!?) :: [a] -> Int -> Maybe a
+[] !? _ = Nothing
+(x:xs) !? i
+  | i < 0  = Nothing
+  | i == 0 = Just x
+  | i > 0  = xs !? (i - 1)

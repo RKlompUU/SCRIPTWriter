@@ -1,5 +1,5 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-module Bitcoin.Script.Analysis.Standard where
+module Bitcoin.Script.Parser.Standard where
 
 import qualified Data.Typeable as T
 import qualified Data.Data as TD
@@ -11,8 +11,6 @@ import qualified Data.ByteString.Lazy.Char8 as BS8L
 import Control.Monad.State.Lazy
 
 import Prelude hiding (catch)
-import System.Directory
-import Control.Exception
 import System.IO.Error hiding (catch)
 
 import Data.Maybe
@@ -44,18 +42,6 @@ replaceXs xss ys =
   | i < 0  = Nothing
   | i == 0 = Just x
   | i > 0  = xs !? (i - 1)
-
-removeIfFileExists :: FilePath -> IO ()
-removeIfFileExists fileName =
-  removeFile fileName `catch` handleExists
-  where handleExists e | isDoesNotExistError e = return ()
-                       | otherwise = throwIO e
-
-removeIfDirExists :: FilePath -> IO ()
-removeIfDirExists dir =
-  removeDirectory dir `catch` handleExists
-  where handleExists e | isDoesNotExistError e = return ()
-                       | otherwise = throwIO e
 
 replace :: Eq a => (a, [a]) -> [a] -> [a]
 replace (x,x') xs

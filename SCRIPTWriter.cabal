@@ -27,10 +27,11 @@ source-repository head
 
 library
   exposed-modules:
-      Bitcoin.Script.Analysis.Parser.API
+      Bitcoin.Script.Parser.API
   other-modules:
       Paths_SCRIPTWriter
       Bitcoin.Script.Parser.AST
+      Bitcoin.Script.Parser.Standard
       Bitcoin.Script.Parser.SyntaxExtension
       Bitcoin.Script.Parser.Parser
   hs-source-dirs:

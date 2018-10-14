@@ -4,7 +4,7 @@ module Bitcoin.Script.Parser.AST where
 import Data.Bitcoin.Script.Types
 
 import qualified Data.ByteString as BS
-import Bitcoin.Script.Analysis.Standard
+import Bitcoin.Script.Parser.Standard
 
 type Label = Int
 
