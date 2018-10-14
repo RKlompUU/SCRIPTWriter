@@ -41,21 +41,11 @@ library
       binary,
       mtl,
       containers,
-      free,
       uu-tc,
-      either >= 4.4.1,
-      IntervalMap,
       bytestring >= 0.10.8.1,
-      base16-bytestring >= 0.1.1.6,
-      binary-parser >= 0.5.5,
-      bytestring-conversion,
-      text >= 1.2.2.1,
-      hex >= 0.1.2,
-      hexstring >= 0.11.1,
       bitcoin-script,
       bitcoin-hs,
-      array >= 0.5.2.0,
-      transformers
+      array >= 0.5.2.0
   default-language: Haskell2010
 
 executable SCRIPTWriter-exe
@@ -66,11 +56,6 @@ executable SCRIPTWriter-exe
       exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      SCRIPTWriter
-    , base >=4.7 && <5
-    , containers
-    , bytestring >= 0.10.8.1
-    , base16-bytestring
-    , hex >= 0.1.2
-    , bitcoin-script
+    base >=4.7,
+    SCRIPTWriter
   default-language: Haskell2010

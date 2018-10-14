@@ -2,7 +2,6 @@ module Main where
 
 import System.IO
 import System.Exit
-import System.Environment
 
 import Data.List
 import Data.Maybe
@@ -26,7 +25,7 @@ readStdin = do
 
 main :: IO ()
 main = do
-  res <- compileCScript <$> readStdin
+  res <- cScriptToBytecode <$> readStdin
   case res of
     Left err -> putStrLn err
     Right scrpt -> putStrLn scrpt
