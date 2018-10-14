@@ -40,7 +40,7 @@ languageDescription =
      \Num := \"0\"..\"9\"\n\
      \Bytestring := Byte+\n\
      \Byte := Hexadecimal Hexadecimal\n\
-     \Hexadecimal := \"0\"..\"9\" | \"a\"..\"z\" | \"A\"..\"Z\"\n\
+     \Hexadecimal := \"0\"..\"9\" | \"a\"..\"f\" | \"A\"..\"F\"\n\
      \Mnemonic := " ++
      intercalate ("\n" ++ take (length "Mnemonic :") (repeat ' ') ++ "| ") mnemonics
 

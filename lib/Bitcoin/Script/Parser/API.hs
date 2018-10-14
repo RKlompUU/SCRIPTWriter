@@ -14,7 +14,7 @@ import qualified Data.ByteString.Lazy.Char8 as B
 import Data.Bitcoin.Script
 
 -- |'customScript2Bytecode' translates a script, written in the custom language, to
--- Bitcoin script bytecode. Returns 'Right' 'String' upon successful translation,
+-- Bitcoin script bytecode (in 'String' format). Returns 'Right' 'String' upon successful translation,
 -- and 'Left' 'String' otherwise.
 cScriptToBytecode :: String -> Either String String
 cScriptToBytecode cScrpt =
