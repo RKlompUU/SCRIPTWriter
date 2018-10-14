@@ -43,9 +43,9 @@ the PUSH keyword and the subsequent bytestring. Parsing starts by applying the\
 Start rule. Anything after "\#" on a line is treated as a comment (similar to how comments work in Bash).\
 
 
-Start := Instruction*
+Start := (Instruction | Byte)*
 
-Instruction := Push | Mnemonic | Byte\
+Instruction := Push | Mnemonic\
 Push := "PUSH" Bytestring  | "PUSH" Integer\
 Integer := "i" Num+ | "i-" Num+\
 Num := "0".."9"\
