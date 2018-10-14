@@ -9,7 +9,7 @@ Dependency: Haskell's Stack (https://docs.haskellstack.org/en/stable/install_and
 
 In the root directory of this repository run:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\# If not already installed, install Happy:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\# On some machines it is required to first manually install happy:<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack install happy<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\# Install Script Writer and all of its dependencies (other than Happy)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack install
@@ -24,22 +24,6 @@ Call SCRIPTWriter-exe, with the custom script in stdin, and optionally passing s
 For example, if file scriptA contains a script written in the human friendly language, run the following in Bash: stack exec SCRIPTWriter-exe -- < scriptA
 
 Some example scripts can be found in folder scripts/
-
-
-#### Understanding SCRIPTWriter-exe's output
-
-![Alt text](.imgs/outputExample.png?raw=true "Example")
-
-(Note: this only describes the default verbosity output mode)
-
-For every unique branch of the supplied output script, the tool will print a verdict under a distinct "--- Symbolic evaluation report of execution branch _i_" section
-
-In this section, the following information is printed:
-
-- The respective branch's decision points are shown (i.e. for every encountered IF operation, is its True branch traversed or is its False branch traversed?)
-- The symbolic stack that the input script must supply
-- The inferred constraints (on these supplied variables)
-- The final resulting symbolic stack (note, at this point we have already performed an additional OP_VERIFY, thus the constraint that the resulting full execution of this branch must end with a true value on the stack is already in the inferred constraints set)
 
 #### The custom syntax
 
