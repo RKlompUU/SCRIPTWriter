@@ -1,6 +1,6 @@
 # SCRIPT Writer
 ![Alt text](.imgs/extendedScriptExample.png?raw=true "Example")
-## ESCRIPT: a human friendly language for programming Bitcoin scripts
+## ESCRIPT: a human readable language for programming Bitcoin scripts
 
 SCRIPT Writer defines a human friendly Bitcoin SCRIPT language and provides a set of functions to translate programs written in this extended language (called ESCRIPT, which is an acronym for Extended SCRIPT) to Bitcoin SCRIPT bytecode. See below for the syntax description, or visit https://vm100.cs.stir.ac.uk/~rkl/docu.php.
 
@@ -23,7 +23,7 @@ In the root directory of this repository run:
 
 The executable (SCRIPTWriter-exe) can be executed in any directory of this repository through Stack as follows: stack exec SCRIPTWriter-exe -- _arguments_
 
-Call SCRIPTWriter-exe, with the custom script in stdin, and optionally passing some arguments (call the tool with first argument 'help' for information regarding arguments)
+Call SCRIPTWriter-exe, with the custom script in stdin.
 
 For example, if file scriptA contains a script written in the human friendly language, run the following in Bash: stack exec SCRIPTWriter-exe -- < scriptA
 
