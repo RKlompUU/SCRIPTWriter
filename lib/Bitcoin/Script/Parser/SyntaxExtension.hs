@@ -30,17 +30,18 @@ languageDescription =
      \\t\t side or the right hand side)\n\
      \\t - The \"..\" specifies a range of allowed characters.\n\
      \Any amount of whitespace is allowed between each instruction and between\n\
-     \the PUSH keyword and the subsequent bytestring. Parsing starts by applying\n\
+     \the PUSH keyword and the subsequent bytestring. Parsing starts by applying the\n\
      \Start rule. Anything after \"#\" on a line is treated as a comment (similar\n\
-     \to how comments work in Bash).\n\n\n\
-     \Start := (Instruction | Byte)*\n\n\
+     \to how comments work in Bash). ESCRIPT's grammar is as follows.\n\n\n\
+     \Start := (Whitespace* Instruction | Whitespace* Byte)* Whitespace*\n\n\
      \Instruction := Push | Mnemonic\n\
-     \Push := \"PUSH\" Bytestring | \"PUSH\" Integer\n\
+     \Push := \"PUSH\" Whitespace* Bytestring | \"PUSH\" Whitespace* Integer\n\
      \Integer := \"i\" Num+ | \"i-\" Num+\n\
      \Num := \"0\"..\"9\"\n\
      \Bytestring := Byte+\n\
      \Byte := Hexadecimal Hexadecimal\n\
      \Hexadecimal := \"0\"..\"9\" | \"a\"..\"f\" | \"A\"..\"F\"\n\
+     \Whitespace := \" \" | \"\\t\" | \"\\n\" | \"\\r\"\n\
      \Mnemonic := " ++
      intercalate ("\n" ++ take (length "Mnemonic :") (repeat ' ') ++ "| ") mnemonics
 
