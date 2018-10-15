@@ -43,15 +43,16 @@ the PUSH keyword and the subsequent bytestring. Parsing starts by applying the\
 Start rule. Anything after "\#" on a line is treated as a comment (similar to how comments work in Bash).\
 
 
-Start := (Instruction | Byte)*
+Start := (Whitespace* Instruction | Whitespace* Byte)* Whitespace*
 
 Instruction := Push | Mnemonic\
-Push := "PUSH" Bytestring  | "PUSH" Integer\
+Push := "PUSH" Whitespace* Bytestring  | "PUSH" Whitespace* Integer\
 Integer := "i" Num+ | "i-" Num+\
 Num := "0".."9"\
 Bytestring := Byte+\
 Byte := Hexadecimal Hexadecimal\
 Hexadecimal := "0".."9" | "a".."f" | "A".."F"\
+Whitespace := " " | "\\t" | "\\n" | "\\r"\
 Mnemonic := "OP_0" | "OP_FALSE" | "OP_PUSHDATA1" | "OP_PUSHDATA2"\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| "OP_PUSHDATA4" | "OP_1NEGATE" | "OP_RESERVED" | "OP_1"\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| "OP_2" | "OP_3" | "OP_4" | "OP_5"\
